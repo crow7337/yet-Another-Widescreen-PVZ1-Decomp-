@@ -2709,14 +2709,13 @@ Zombie* Board::AddZombieInRow(ZombieType theZombieType, int theRow, int theFromW
 			mZombies.DataArrayAlloc()->ZombieInitialize(theRow, ZombieType::ZOMBIE_BOBSLED, false, aZombie, theFromWave);
 		}
 	}
+
+	RustleBush(aZombie->mRow);
 	return aZombie;
 }
 
 Zombie* Board::AddZombie(ZombieType theZombieType, int theFromWave)
 {
-	int row = PickRowForNewZombie(theZombieType);
-	RustleBush(row);
-
 	return AddZombieInRow(theZombieType, PickRowForNewZombie(theZombieType), theFromWave);
 }
 
@@ -10007,12 +10006,3 @@ void Board::RustleBush(int theRow)
 
 	mApp->ReanimationGet(mBushReanimIDs[aRow])->PlayReanim("anim_rustle", ReanimLoopType::REANIM_PLAY_ONCE_AND_HOLD, 10, RandRangeFloat(9.0f, 14.0f));
 }
-
-
-
-
-
-
-
-
-

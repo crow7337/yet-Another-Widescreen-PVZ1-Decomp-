@@ -538,9 +538,9 @@ void GameSelector::Draw(Graphics* g)
 	if (mHasTrophy)
 	{
 		if (mApp->EarnedGoldTrophy())
-			TodDrawImageCelF(g, Sexy::IMAGE_SUNFLOWER_TROPHY, aTransformLeft.mTransX + 10.0f + BOARD_ADDITIONAL_WIDTH, aTransformLeft.mTransY + 390.0f + BOARD_OFFSET_Y, 1, 0);
+			TodDrawImageCelF(g, Sexy::IMAGE_SUNFLOWER_TROPHY, 20.0f + BOARD_ADDITIONAL_WIDTH, aTransformLeft.mTransY + 390.0f + BOARD_OFFSET_Y, 1, 0);
 		else
-			TodDrawImageCelF(g, Sexy::IMAGE_SUNFLOWER_TROPHY, aTransformLeft.mTransX + 10.0f + BOARD_ADDITIONAL_WIDTH, aTransformLeft.mTransY + 390.0f + BOARD_OFFSET_Y, 0, 0);
+			TodDrawImageCelF(g, Sexy::IMAGE_SUNFLOWER_TROPHY, 20.0f + BOARD_ADDITIONAL_WIDTH, aTransformLeft.mTransY + 390.0f + BOARD_OFFSET_Y, 0, 0);
 		
 		TodParticleSystem* aTrophyParticle = mApp->ParticleTryToGet(mTrophyParticleID);
 		if (aTrophyParticle)
@@ -603,15 +603,15 @@ void GameSelector::DrawOverlay(Graphics* g)
 
 		g->SetColorizeImages(true);
 		g->SetColor(mAdventureButton->mColors[ButtonWidget::COLOR_BKG]);
-		TodDrawImageCelF(g, Sexy::IMAGE_SELECTORSCREEN_LEVELNUMBERS, aTransAreaX + 597.0f, aTransAreaY + 205.0f, aStage, 0);  // 绘制大关数
+		TodDrawImageCelF(g, Sexy::IMAGE_SELECTORSCREEN_LEVELNUMBERS, aTransAreaX + 600.0f, aTransAreaY + 115.0f, aStage, 0);  // 绘制大关数
 		if (aSub < 10)
 		{
-			TodDrawImageCelF(g, Sexy::IMAGE_SELECTORSCREEN_LEVELNUMBERS, aTransSubX + 617.0f, aTransSubY + 208.0f, aSub, 0);
+			TodDrawImageCelF(g, Sexy::IMAGE_SELECTORSCREEN_LEVELNUMBERS, aTransSubX + 623.0f, aTransSubY + 118.0f, aSub, 0);
 		}
 		else if (aSub == 10)
 		{
-			TodDrawImageCelF(g, Sexy::IMAGE_SELECTORSCREEN_LEVELNUMBERS, aTransSubX + 504.0f, aTransSubY + 128.0f, 1, 0);
-			TodDrawImageCelF(g, Sexy::IMAGE_SELECTORSCREEN_LEVELNUMBERS, aTransSubX + 513.0f, aTransSubY + 129.0f, 0, 0);
+			TodDrawImageCelF(g, Sexy::IMAGE_SELECTORSCREEN_LEVELNUMBERS, aTransSubX + 620.0f, aTransSubY + 118.0f, 1, 0);
+			TodDrawImageCelF(g, Sexy::IMAGE_SELECTORSCREEN_LEVELNUMBERS, aTransSubX + 629.0f, aTransSubY + 118.0f, 0, 0);
 		}
 		g->SetColorizeImages(false);
 	}
