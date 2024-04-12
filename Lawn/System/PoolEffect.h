@@ -24,7 +24,7 @@ public:
 public:
 	void				PoolEffectInitialize();
 	void				PoolEffectDispose();
-	void				PoolEffectDraw(Sexy::Graphics* g, bool theIsNight);
+	void				PoolEffectDraw(Sexy::Graphics* g, bool theIsNight, int xPos, int yPos);
 	void				UpdateWaterEffect(Sexy::Graphics* g);
 	unsigned int		BilinearLookupFixedPoint(unsigned int u, unsigned int v);
 	//unsigned int		BilinearLookup(float u, float v);

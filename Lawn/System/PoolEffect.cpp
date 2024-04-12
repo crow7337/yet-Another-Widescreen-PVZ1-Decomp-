@@ -106,18 +106,18 @@ void PoolEffect::UpdateWaterEffect(Sexy::Graphics* g)
     ++mCausticImage->mBitsChangedCount;
 }
 
-//0x469DE0
-void PoolEffect::PoolEffectDraw(Sexy::Graphics* g, bool theIsNight)
+//0x469DE0 // 34, 278 lawn
+void PoolEffect::PoolEffectDraw(Sexy::Graphics* g, bool theIsNight, int xPos, int yPos) 
 {
     if (!mApp->Is3DAccelerated())
     {
         if (theIsNight)
         {
-            g->DrawImage(IMAGE_POOL_NIGHT, 34, 278);
+            g->DrawImage(IMAGE_POOL_NIGHT, xPos, yPos);
         }
         else
         {
-            g->DrawImage(IMAGE_POOL, 34, 278);
+            g->DrawImage(IMAGE_POOL, xPos, yPos);
         }
         return;
     }

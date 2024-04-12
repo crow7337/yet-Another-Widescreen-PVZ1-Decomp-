@@ -355,7 +355,7 @@ void AlmanacDialog::DrawPlants(Graphics* g)
 		{
 			g->SetClipRect(475, 0, 397, 500);
 			g->mTransY -= 145;
-			mApp->mPoolEffect->PoolEffectDraw(g, aNight);
+			mApp->mPoolEffect->PoolEffectDraw(g, aNight, 100, 278);
 			g->mTransY += 145;
 			g->ClearClipRect();
 		}
