@@ -38,7 +38,7 @@ const int           IMITATER_DIALOG_HEIGHT = 600;
 // ============================================================
 // ■ 关卡相关
 // ============================================================
-const int			ADVENTURE_AREAS = 6;
+const int			ADVENTURE_AREAS = 5;
 const int			LEVELS_PER_AREA = 10;
 const int           NUM_LEVELS = ADVENTURE_AREAS * LEVELS_PER_AREA;
 const int			FINAL_LEVEL = NUM_LEVELS;

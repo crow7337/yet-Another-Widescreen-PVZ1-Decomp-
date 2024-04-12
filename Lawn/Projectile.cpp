@@ -26,7 +26,6 @@ ProjectileDefinition gProjectileDefinition[] = {  //0x69F1C0
 	{ ProjectileType::PROJECTILE_COBBIG,        0,  300 },
 	{ ProjectileType::PROJECTILE_BUTTER,        0,  40  },
 	{ ProjectileType::PROJECTILE_ZOMBIE_PEA,    0,  20  },
-	{ ProjectileType::PROJECTILE_SLINGPEA,    0,  20  }
 };
 
 Projectile::Projectile()
@@ -81,7 +80,7 @@ void Projectile::ProjectileInitialize(int theX, int theY, int theRenderOrder, in
 		mRotation = -7 * PI / 25;  // DEG_TO_RAD(-50.4f);
 		mRotationSpeed = RandRangeFloat(-0.08f, -0.02f);
 	}
-	else if (mProjectileType == ProjectileType::PROJECTILE_MELON || mProjectileType == ProjectileType::PROJECTILE_SLINGPEA || mProjectileType == ProjectileType::PROJECTILE_WINTERMELON)
+	else if (mProjectileType == ProjectileType::PROJECTILE_MELON || mProjectileType == ProjectileType::PROJECTILE_WINTERMELON)
 	{
 		mRotation = -2 * PI / 5;  // DEG_TO_RAD(-72.0f);
 		mRotationSpeed = RandRangeFloat(-0.08f, -0.02f);
@@ -540,7 +539,7 @@ void Projectile::UpdateLobMotion()
 		{
 			aMinCollisionZ = 60.0f;
 		}
-		else if (mProjectileType == ProjectileType::PROJECTILE_MELON || mProjectileType == ProjectileType::PROJECTILE_SLINGPEA || mProjectileType == ProjectileType::PROJECTILE_WINTERMELON)
+		else if (mProjectileType == ProjectileType::PROJECTILE_MELON || mProjectileType == ProjectileType::PROJECTILE_WINTERMELON)
 		{
 			aMinCollisionZ = -35.0f;
 		}
@@ -551,12 +550,6 @@ void Projectile::UpdateLobMotion()
 		else if (mProjectileType == ProjectileType::PROJECTILE_COBBIG)
 		{
 			aMinCollisionZ = -60.0f;
-		}
-		else if (mProjectileType == ProjectileType::PROJECTILE_SLINGPEA) {
-			mPosY = mVelY + mShadowY;
-			mShadowY += mVelY;
-			mRow = mBoard->PixelToGridYKeepOnBoard(mPosX, mPosY - 20);
-			aMinCollisionZ = -30.0f;
 		}
 		if (mBoard->mPlantRow[mRow] == PlantRowType::PLANTROW_POOL)
 		{
@@ -857,7 +850,7 @@ void Projectile::DoImpact(Zombie* theZombie)
 		mApp->PlaySample(SOUND_DOOMSHROOM);
 		mBoard->ShakeBoard(3, -4);
 	}
-	else if (mProjectileType == ProjectileType::PROJECTILE_PEA || mProjectileType == ProjectileType::PROJECTILE_SLINGPEA)
+	else if (mProjectileType == ProjectileType::PROJECTILE_PEA)
 	{
 		aSplatPosX -= 15.0f;
 		aEffect = ParticleEffect::PARTICLE_PEA_SPLAT;
@@ -891,12 +884,6 @@ void Projectile::DoImpact(Zombie* theZombie)
 		aSplatPosX = aLastPosX - 38.0f;
 		aSplatPosY = aLastPosY + 23.0f;
 		aEffect = ParticleEffect::PARTICLE_CABBAGE_SPLAT;
-	}
-	else if (mProjectileType == ProjectileType::PROJECTILE_SLINGPEA)
-	{
-		aSplatPosX = aLastPosX - 38.0f;
-		aSplatPosY = aLastPosY + 23.0f;
-		aEffect = ParticleEffect::PARTICLE_PEA_SPLAT;
 	}
 	else if (mProjectileType == ProjectileType::PROJECTILE_BUTTER)
 	{
@@ -958,7 +945,6 @@ void Projectile::Update()
 		mProjectileType == ProjectileType::PROJECTILE_BUTTER || 
 		mProjectileType == ProjectileType::PROJECTILE_COBBIG || 
 		mProjectileType == ProjectileType::PROJECTILE_ZOMBIE_PEA || 
-		mProjectileType == ProjectileType::PROJECTILE_SLINGPEA ||
 		mProjectileType == ProjectileType::PROJECTILE_SPIKE)
 	{
 		aTime = 0;
@@ -990,7 +976,7 @@ void Projectile::Draw(Graphics* g)
 		aImage = IMAGE_REANIM_COBCANNON_COB;
 		aScale = 0.9f;
 	}
-	else if (mProjectileType == ProjectileType::PROJECTILE_PEA || mProjectileType == ProjectileType::PROJECTILE_SLINGPEA || mProjectileType == ProjectileType::PROJECTILE_ZOMBIE_PEA)
+	else if (mProjectileType == ProjectileType::PROJECTILE_PEA || mProjectileType == ProjectileType::PROJECTILE_ZOMBIE_PEA)
 	{
 		aImage = IMAGE_PROJECTILEPEA;
 	}
@@ -1137,7 +1123,6 @@ void Projectile::DrawShadow(Graphics* g)
 	case ProjectileType::PROJECTILE_BUTTER:
 	case ProjectileType::PROJECTILE_MELON:
 	case ProjectileType::PROJECTILE_WINTERMELON:
-	case ProjectileType::PROJECTILE_SLINGPEA:
 		aOffsetX += 3.0f;
 		aOffsetY += 10.0f;
 		aScale = 1.6f;
@@ -1186,7 +1171,6 @@ void Projectile::Die()
 Rect Projectile::GetProjectileRect()
 {
 	if (mProjectileType == ProjectileType::PROJECTILE_PEA ||
-		mProjectileType == ProjectileType::PROJECTILE_SLINGPEA ||
 		mProjectileType == ProjectileType::PROJECTILE_SNOWPEA ||
 		mProjectileType == ProjectileType::PROJECTILE_ZOMBIE_PEA)
 	{

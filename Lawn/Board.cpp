@@ -1019,10 +1019,8 @@ void Board::PickBackground()
 		break;
 	}
 	LoadBackgroundImages();
-	if (mBackground == BackgroundType::BACKGROUND_1_DAY || mBackground == BackgroundType::BACKGROUND_3_POOL)
+	if (BackgroundHasBush())
 	{
-		Zombie* aZombie = nullptr;
-
 		CreateBushReanim(712, -20, MakeRenderOrder(RENDER_LAYER_BUSH, 0, 0), ReanimationType::REANIM_BUSH1);
 		CreateBushReanim(717, 110, MakeRenderOrder(RENDER_LAYER_BUSH, 1, 0), ReanimationType::REANIM_BUSH2);
 		CreateBushReanim(725, 200, MakeRenderOrder(RENDER_LAYER_BUSH, 2, 0), ReanimationType::REANIM_BUSH3);
@@ -2710,7 +2708,10 @@ Zombie* Board::AddZombieInRow(ZombieType theZombieType, int theRow, int theFromW
 		}
 	}
 
-	RustleBush(aZombie->mRow);
+	if (aZombie->useBush && BackgroundHasBush())
+	{
+		RustleBush(aZombie->mRow);
+	}
 	return aZombie;
 }
 
@@ -6022,20 +6023,28 @@ void Board::DrawCover(Graphics* g)
 {
 	switch (mBackground)
 	{
-	case BackgroundType::BACKGROUND_2_NIGHT:
-	case BackgroundType::BACKGROUND_4_FOG:
-	{
-		g->DrawImage(Sexy::IMAGE_POOL_LAUNDRY_NIGHT, 658, -40);
+	case BACKGROUND_1_DAY:
+		g->DrawImage(Sexy::IMAGE_BACKGROUND1_COVER, 684, 530);
 		break;
-	}
+	case BACKGROUND_2_NIGHT:
+		g->DrawImage(Sexy::IMAGE_BACKGROUND2_COVER, 684, 557);
+		break;
+	case BACKGROUND_3_POOL:
+		g->DrawImage(Sexy::IMAGE_BACKGROUND3_COVER, 684, 657);
+		break;
+	case BACKGROUND_4_FOG:
+		g->DrawImage(Sexy::IMAGE_BACKGROUND4_COVER, 684, 657);
+		break;
 	case BackgroundType::BACKGROUND_5_ROOF:
 	{
-		g->DrawImage(Sexy::IMAGE_ROOF_POLE, mRoofPoleOffset * 1.5 + 628, -BOARD_OFFSET_Y);
+		g->DrawImage(Sexy::IMAGE_ROOF_POLE, mRoofPoleOffset * 1.5 + 635, -BOARD_OFFSET_Y);
+		g->DrawImage(Sexy::IMAGE_ROOF_TREE, mRoofPoleOffset * 2.0 + 610, -BOARD_OFFSET_Y);
 		break;
 	}
 	case BackgroundType::BACKGROUND_6_BOSS:
 	{
-		g->DrawImage(Sexy::IMAGE_NIGHT_ROOF_POLE, mRoofPoleOffset * 1.5 + 628, -BOARD_OFFSET_Y);
+		g->DrawImage(Sexy::IMAGE_ROOF_POLE_NIGHT, mRoofPoleOffset * 1.5 + 635, -BOARD_OFFSET_Y);
+		g->DrawImage(Sexy::IMAGE_ROOF_TREE_NIGHT, mRoofPoleOffset * 2.0 + 610, -BOARD_OFFSET_Y);
 		break;
 	}
 	}
@@ -6062,14 +6071,14 @@ void Board::DrawBackdrop(Graphics* g)
 
 	if (mLevel == 1 && mApp->IsFirstTimeAdventureMode())
 	{
-		g->DrawImage(Sexy::IMAGE_BACKGROUND1UNSODDED, -BOARD_OFFSET_X, -BOARD_OFFSET_Y);
+		g->DrawImage(Sexy::IMAGE_BACKGROUND1UNSODDED, -(BOARD_OFFSET_X + BOARD_ADDITIONAL_WIDTH), -BOARD_OFFSET_Y);
 		int aWidth = TodAnimateCurve(0, 1000, mSodPosition, 0, Sexy::IMAGE_SOD1ROW->GetWidth(), TodCurves::CURVE_LINEAR);
 		Rect aSrcRect(0, 0, aWidth, Sexy::IMAGE_SOD1ROW->GetHeight());
 		g->DrawImage(Sexy::IMAGE_SOD1ROW, 239 - BOARD_OFFSET_X, 265, aSrcRect);
 	}
 	else if (((mLevel == 2 || mLevel == 3) && mApp->IsFirstTimeAdventureMode()) || mApp->mGameMode == GameMode::GAMEMODE_CHALLENGE_RESODDED)
 	{
-		g->DrawImage(Sexy::IMAGE_BACKGROUND1UNSODDED, -BOARD_OFFSET_X, -BOARD_OFFSET_Y);
+		g->DrawImage(Sexy::IMAGE_BACKGROUND1UNSODDED, -(BOARD_OFFSET_X + BOARD_ADDITIONAL_WIDTH), -BOARD_OFFSET_Y);
 		g->DrawImage(Sexy::IMAGE_SOD1ROW, 239 - BOARD_OFFSET_X, 265);
 		int aWidth = TodAnimateCurve(0, 1000, mSodPosition, 0, Sexy::IMAGE_SOD3ROW->GetWidth(), TodCurves::CURVE_LINEAR);
 		Rect aSrcRect(0, 0, aWidth, Sexy::IMAGE_SOD3ROW->GetHeight());
@@ -6077,7 +6086,7 @@ void Board::DrawBackdrop(Graphics* g)
 	}
 	else if (mLevel == 4 && mApp->IsFirstTimeAdventureMode())
 	{
-		g->DrawImage(Sexy::IMAGE_BACKGROUND1UNSODDED, -BOARD_OFFSET_X, -BOARD_OFFSET_Y);
+		g->DrawImage(Sexy::IMAGE_BACKGROUND1UNSODDED, -(BOARD_OFFSET_X + BOARD_ADDITIONAL_WIDTH), -BOARD_OFFSET_Y);
 		g->DrawImage(Sexy::IMAGE_SOD3ROW, 235 - BOARD_OFFSET_X, 149);
 		int aWidth = TodAnimateCurve(0, 1000, mSodPosition, 0, 773, TodCurves::CURVE_LINEAR);
 		Rect aSrcRect(232, 0, aWidth, Sexy::IMAGE_BACKGROUND1->GetHeight());
@@ -6094,6 +6103,7 @@ void Board::DrawBackdrop(Graphics* g)
 			g->DrawImage(aBgImage, -(BOARD_OFFSET_X + BOARD_ADDITIONAL_WIDTH), -BOARD_OFFSET_Y);
 		}
 	}
+
 
 	if (mApp->mGameScene == GameScenes::SCENE_ZOMBIES_WON)
 	{

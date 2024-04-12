@@ -265,7 +265,6 @@ public:
     void                    UpdateBlover();
     void                    UpdateCactus();
     void                    StarFruitFire();
-    void                    SlingPeaFire();
     void                    UpdateTanglekelp();
     Reanimation*            AttachBlinkAnim(Reanimation* theReanimBody);
     void                    UpdateReanimColor();

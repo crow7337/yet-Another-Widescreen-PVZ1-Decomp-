@@ -162,6 +162,7 @@ public:
     bool                            mIsFireBall;                                //+0x14C
     ReanimationID                   mMoweredReanimID;                           //+0x150
     int                             mLastPortalX;                               //+0x154
+    bool                            useBush;                               
 
 public:
     Zombie();

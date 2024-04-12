@@ -2370,10 +2370,6 @@ bool LawnApp::HasSeedType(SeedType theSeedType)
 	{
 		return mPlayerInfo->mPurchases[(int)StoreItem::STORE_ITEM_TEST_1] > 0;
 	}
-	if (theSeedType == SeedType::SEED_SLINGPEA)
-	{
-		return mPlayerInfo->mPurchases[(int)StoreItem::STORE_ITEM_TEST_2] > 0;
-	}
 
 	return theSeedType < GetSeedsAvailable();
 }

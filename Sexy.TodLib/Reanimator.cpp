@@ -166,8 +166,6 @@ ReanimationParams gLawnReanimationArray[(int)ReanimationType::NUM_REANIMS] = { /
 	{ ReanimationType::REANIM_BUSH4,                                 "reanim\\bushes3.reanim",                           0 },
 	{ ReanimationType::REANIM_BUSH5,                                 "reanim\\bushes3.reanim",                           0 },
 	{ ReanimationType::REANIM_EXPLODE_O_NUT,                        "reanim\\ExplodeOnut.reanim",                       0 },
-	{ ReanimationType::REANIM_ICENUT,                               "reanim\\Icenut.reanim",                       0 },
-	{ ReanimationType::REANIM_DOOMNUT,                               "reanim\\DoomNut.reanim",                       0 },
 };
 
 //0x471540

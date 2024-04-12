@@ -207,8 +207,6 @@
 <Image id="ICE" path="ice" />
 <Image id="ICE_CAP" path="ice_cap" />
 <Image id="ICE_SPARKLES" path="ice_sparkles" cols="3" />
-<Image id="ROOF_POLE" path="pole" />
-<Image id="NIGHT_ROOF_POLE" path="pole_night" />
 <Image id="POOL_LAUNDRY" path="pool_laundry" />
 <Image id="POOL_LAUNDRY_NIGHT" path="pool_laundry_night" />
 
@@ -597,6 +595,7 @@
 <Image id="BACKGROUND1" path="background1" ddsurface="" a8r8g8b8="" />
 <Image id="BACKGROUND1_GAMEOVER_INTERIOR_OVERLAY" path="background1_gameover_interior_overlay" />
 <Image id="BACKGROUND1_GAMEOVER_MASK" path="background1_gameover_mask" />
+<Image id="BACKGROUND1_COVER" path="background1_overlay" />
 </Resources>
   
 <Resources id="DelayLoad_BackgroundUnsodded">
@@ -611,6 +610,7 @@
 <Image id="BACKGROUND2" path="background2" ddsurface="" a8r8g8b8="" />
 <Image id="BACKGROUND2_GAMEOVER_INTERIOR_OVERLAY" path="background2_gameover_interior_overlay" />
 <Image id="BACKGROUND2_GAMEOVER_MASK" path="background2_gameover_mask" />
+<Image id="BACKGROUND2_COVER" path="background2_overlay" />
 </Resources>
   
 <Resources id="DelayLoad_Background3">
@@ -618,6 +618,7 @@
 <Image id="BACKGROUND3" path="background3" ddsurface="" a8r8g8b8="" />
 <Image id="BACKGROUND3_GAMEOVER_INTERIOR_OVERLAY" path="background3_gameover_interior_overlay" />
 <Image id="BACKGROUND3_GAMEOVER_MASK" path="background3_gameover_mask" />
+<Image id="BACKGROUND3_COVER" path="background3_overlay" />
 </Resources>
 
 <Resources id="DelayLoad_Background4">
@@ -625,6 +626,7 @@
 <Image id="BACKGROUND4" path="background4" ddsurface="" a8r8g8b8="" />
 <Image id="BACKGROUND4_GAMEOVER_INTERIOR_OVERLAY" path="background4_gameover_interior_overlay" />
 <Image id="BACKGROUND4_GAMEOVER_MASK" path="background4_gameover_mask" />
+<Image id="BACKGROUND4_COVER" path="background4_overlay" />
 <Image id="FOG" path="fog" cols="8" />
 <Image id="FOG_SOFTWARE" path="fog_software" cols="3" />
 </Resources>
@@ -633,12 +635,16 @@
 <SetDefaults path="images" idprefix="IMAGE_" />
 <Image id="BACKGROUND5" path="background5" ddsurface="" a8r8g8b8="" />
 <Image id="BACKGROUND5_GAMEOVER_MASK" path="background5_gameover_mask" />
+<Image id="ROOF_TREE" path="pole" />
+<Image id="ROOF_POLE" path="background5_trees" />
 </Resources>
   
 <Resources id="DelayLoad_Background6">
 <SetDefaults path="images" idprefix="IMAGE_" />
 <Image id="BACKGROUND6BOSS" path="background6boss" ddsurface="" a8r8g8b8="" />
 <Image id="BACKGROUND6_GAMEOVER_MASK" path="background6_gameover_mask" />
+<Image id="ROOF_TREE_NIGHT" path="background6_trees" />
+<Image id="ROOF_POLE_NIGHT" path="pole_night" />
 </Resources>
   
 <Resources id="DelayLoad_MushroomGarden">

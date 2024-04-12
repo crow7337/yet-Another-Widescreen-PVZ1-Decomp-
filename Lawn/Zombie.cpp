@@ -155,6 +155,7 @@ void Zombie::ZombieInitialize(int theRow, ZombieType theType, bool theVariant, Z
     mIsFireBall = false;
     mMoweredReanimID = ReanimationID::REANIMATIONID_NULL;
     mLastPortalX = -1;
+    useBush = true;
     for (int i = 0; i < MAX_ZOMBIE_FOLLOWERS; i++)
     {
         mFollowerZombieID[i] = ZombieID::ZOMBIEID_NULL;
@@ -264,6 +265,7 @@ void Zombie::ZombieInitialize(int theRow, ZombieType theType, bool theVariant, Z
         mZombieRect = Rect(-20, 22, 110, 94);
         mZombieAttackRect = Rect(0, 0, 0, 0);
         mVariant = false;
+        useBush = false;
         break;
     }
     
@@ -2804,6 +2806,8 @@ ZombieID Zombie::SummonBackupDancer(int theRow, int thePosX)
     int aRenderOrder = Board::MakeRenderOrder(RenderLayer::RENDER_LAYER_PARTICLE, theRow, 0);
     mApp->AddTodParticle(aParticleX, aParticleY, aRenderOrder, ParticleEffect::PARTICLE_DANCER_RISE);
     mApp->PlayFoley(FoleyType::FOLEY_GRAVESTONE_RUMBLE);
+
+    aZombie->useBush = false;
 
     return mBoard->ZombieGetID(aZombie);
 }

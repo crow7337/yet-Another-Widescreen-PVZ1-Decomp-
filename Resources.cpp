@@ -134,19 +134,21 @@ bool Sexy::ExtractDelayLoad_AwardScreenResources(ResourceManager *theManager)
 Image* Sexy::IMAGE_BACKGROUND1;
 Image* Sexy::IMAGE_BACKGROUND1_GAMEOVER_INTERIOR_OVERLAY;
 Image* Sexy::IMAGE_BACKGROUND1_GAMEOVER_MASK;
+Image* Sexy::IMAGE_BACKGROUND1_COVER;
 
-bool Sexy::ExtractDelayLoad_Background1Resources(ResourceManager *theManager)
+bool Sexy::ExtractDelayLoad_Background1Resources(ResourceManager* theManager)
 {
 	gNeedRecalcVariableToIdMap = true;
 
-	ResourceManager &aMgr = *theManager;
+	ResourceManager& aMgr = *theManager;
 	try
 	{
 		IMAGE_BACKGROUND1 = aMgr.GetImageThrow("IMAGE_BACKGROUND1");
 		IMAGE_BACKGROUND1_GAMEOVER_INTERIOR_OVERLAY = aMgr.GetImageThrow("IMAGE_BACKGROUND1_GAMEOVER_INTERIOR_OVERLAY");
 		IMAGE_BACKGROUND1_GAMEOVER_MASK = aMgr.GetImageThrow("IMAGE_BACKGROUND1_GAMEOVER_MASK");
+		IMAGE_BACKGROUND1_COVER = aMgr.GetImageThrow("IMAGE_BACKGROUND1_COVER");
 	}
-	catch(ResourceManagerException&)
+	catch (ResourceManagerException&)
 	{
 		return false;
 	}
@@ -157,19 +159,21 @@ bool Sexy::ExtractDelayLoad_Background1Resources(ResourceManager *theManager)
 Image* Sexy::IMAGE_BACKGROUND2;
 Image* Sexy::IMAGE_BACKGROUND2_GAMEOVER_INTERIOR_OVERLAY;
 Image* Sexy::IMAGE_BACKGROUND2_GAMEOVER_MASK;
+Image* Sexy::IMAGE_BACKGROUND2_COVER;
 
-bool Sexy::ExtractDelayLoad_Background2Resources(ResourceManager *theManager)
+bool Sexy::ExtractDelayLoad_Background2Resources(ResourceManager* theManager)
 {
 	gNeedRecalcVariableToIdMap = true;
 
-	ResourceManager &aMgr = *theManager;
+	ResourceManager& aMgr = *theManager;
 	try
 	{
 		IMAGE_BACKGROUND2 = aMgr.GetImageThrow("IMAGE_BACKGROUND2");
 		IMAGE_BACKGROUND2_GAMEOVER_INTERIOR_OVERLAY = aMgr.GetImageThrow("IMAGE_BACKGROUND2_GAMEOVER_INTERIOR_OVERLAY");
 		IMAGE_BACKGROUND2_GAMEOVER_MASK = aMgr.GetImageThrow("IMAGE_BACKGROUND2_GAMEOVER_MASK");
+		IMAGE_BACKGROUND2_COVER = aMgr.GetImageThrow("IMAGE_BACKGROUND2_COVER");
 	}
-	catch(ResourceManagerException&)
+	catch (ResourceManagerException&)
 	{
 		return false;
 	}
@@ -180,19 +184,21 @@ bool Sexy::ExtractDelayLoad_Background2Resources(ResourceManager *theManager)
 Image* Sexy::IMAGE_BACKGROUND3;
 Image* Sexy::IMAGE_BACKGROUND3_GAMEOVER_INTERIOR_OVERLAY;
 Image* Sexy::IMAGE_BACKGROUND3_GAMEOVER_MASK;
+Image* Sexy::IMAGE_BACKGROUND3_COVER;
 
-bool Sexy::ExtractDelayLoad_Background3Resources(ResourceManager *theManager)
+bool Sexy::ExtractDelayLoad_Background3Resources(ResourceManager* theManager)
 {
 	gNeedRecalcVariableToIdMap = true;
 
-	ResourceManager &aMgr = *theManager;
+	ResourceManager& aMgr = *theManager;
 	try
 	{
 		IMAGE_BACKGROUND3 = aMgr.GetImageThrow("IMAGE_BACKGROUND3");
 		IMAGE_BACKGROUND3_GAMEOVER_INTERIOR_OVERLAY = aMgr.GetImageThrow("IMAGE_BACKGROUND3_GAMEOVER_INTERIOR_OVERLAY");
 		IMAGE_BACKGROUND3_GAMEOVER_MASK = aMgr.GetImageThrow("IMAGE_BACKGROUND3_GAMEOVER_MASK");
+		IMAGE_BACKGROUND3_COVER = aMgr.GetImageThrow("IMAGE_BACKGROUND3_COVER");
 	}
-	catch(ResourceManagerException&)
+	catch (ResourceManagerException&)
 	{
 		return false;
 	}
@@ -203,23 +209,25 @@ bool Sexy::ExtractDelayLoad_Background3Resources(ResourceManager *theManager)
 Image* Sexy::IMAGE_BACKGROUND4;
 Image* Sexy::IMAGE_BACKGROUND4_GAMEOVER_INTERIOR_OVERLAY;
 Image* Sexy::IMAGE_BACKGROUND4_GAMEOVER_MASK;
+Image* Sexy::IMAGE_BACKGROUND4_COVER;
 Image* Sexy::IMAGE_FOG;
 Image* Sexy::IMAGE_FOG_SOFTWARE;
 
-bool Sexy::ExtractDelayLoad_Background4Resources(ResourceManager *theManager)
+bool Sexy::ExtractDelayLoad_Background4Resources(ResourceManager* theManager)
 {
 	gNeedRecalcVariableToIdMap = true;
 
-	ResourceManager &aMgr = *theManager;
+	ResourceManager& aMgr = *theManager;
 	try
 	{
 		IMAGE_BACKGROUND4 = aMgr.GetImageThrow("IMAGE_BACKGROUND4");
 		IMAGE_BACKGROUND4_GAMEOVER_INTERIOR_OVERLAY = aMgr.GetImageThrow("IMAGE_BACKGROUND4_GAMEOVER_INTERIOR_OVERLAY");
 		IMAGE_BACKGROUND4_GAMEOVER_MASK = aMgr.GetImageThrow("IMAGE_BACKGROUND4_GAMEOVER_MASK");
+		IMAGE_BACKGROUND4_COVER = aMgr.GetImageThrow("IMAGE_BACKGROUND4_COVER");
 		IMAGE_FOG = aMgr.GetImageThrow("IMAGE_FOG");
 		IMAGE_FOG_SOFTWARE = aMgr.GetImageThrow("IMAGE_FOG_SOFTWARE");
 	}
-	catch(ResourceManagerException&)
+	catch (ResourceManagerException&)
 	{
 		return false;
 	}
@@ -229,18 +237,22 @@ bool Sexy::ExtractDelayLoad_Background4Resources(ResourceManager *theManager)
 // DelayLoad_Background5 Resources
 Image* Sexy::IMAGE_BACKGROUND5;
 Image* Sexy::IMAGE_BACKGROUND5_GAMEOVER_MASK;
+Image* Sexy::IMAGE_ROOF_POLE;
+Image* Sexy::IMAGE_ROOF_TREE;
 
-bool Sexy::ExtractDelayLoad_Background5Resources(ResourceManager *theManager)
+bool Sexy::ExtractDelayLoad_Background5Resources(ResourceManager* theManager)
 {
 	gNeedRecalcVariableToIdMap = true;
 
-	ResourceManager &aMgr = *theManager;
+	ResourceManager& aMgr = *theManager;
 	try
 	{
 		IMAGE_BACKGROUND5 = aMgr.GetImageThrow("IMAGE_BACKGROUND5");
 		IMAGE_BACKGROUND5_GAMEOVER_MASK = aMgr.GetImageThrow("IMAGE_BACKGROUND5_GAMEOVER_MASK");
+		IMAGE_ROOF_TREE = aMgr.GetImageThrow("IMAGE_ROOF_TREE");
+		IMAGE_ROOF_POLE = aMgr.GetImageThrow("IMAGE_ROOF_POLE");
 	}
-	catch(ResourceManagerException&)
+	catch (ResourceManagerException&)
 	{
 		return false;
 	}
@@ -250,18 +262,22 @@ bool Sexy::ExtractDelayLoad_Background5Resources(ResourceManager *theManager)
 // DelayLoad_Background6 Resources
 Image* Sexy::IMAGE_BACKGROUND6BOSS;
 Image* Sexy::IMAGE_BACKGROUND6_GAMEOVER_MASK;
+Image* Sexy::IMAGE_ROOF_POLE_NIGHT;
+Image* Sexy::IMAGE_ROOF_TREE_NIGHT;
 
-bool Sexy::ExtractDelayLoad_Background6Resources(ResourceManager *theManager)
+bool Sexy::ExtractDelayLoad_Background6Resources(ResourceManager* theManager)
 {
 	gNeedRecalcVariableToIdMap = true;
 
-	ResourceManager &aMgr = *theManager;
+	ResourceManager& aMgr = *theManager;
 	try
 	{
 		IMAGE_BACKGROUND6BOSS = aMgr.GetImageThrow("IMAGE_BACKGROUND6BOSS");
 		IMAGE_BACKGROUND6_GAMEOVER_MASK = aMgr.GetImageThrow("IMAGE_BACKGROUND6_GAMEOVER_MASK");
+		IMAGE_ROOF_POLE_NIGHT = aMgr.GetImageThrow("IMAGE_ROOF_TREE_NIGHT");
+		IMAGE_ROOF_TREE_NIGHT = aMgr.GetImageThrow("IMAGE_ROOF_POLE_NIGHT");
 	}
-	catch(ResourceManagerException&)
+	catch (ResourceManagerException&)
 	{
 		return false;
 	}
@@ -273,18 +289,18 @@ Image* Sexy::IMAGE_BACKGROUND1UNSODDED;
 Image* Sexy::IMAGE_SOD1ROW;
 Image* Sexy::IMAGE_SOD3ROW;
 
-bool Sexy::ExtractDelayLoad_BackgroundUnsoddedResources(ResourceManager *theManager)
+bool Sexy::ExtractDelayLoad_BackgroundUnsoddedResources(ResourceManager* theManager)
 {
 	gNeedRecalcVariableToIdMap = true;
 
-	ResourceManager &aMgr = *theManager;
+	ResourceManager& aMgr = *theManager;
 	try
 	{
 		IMAGE_BACKGROUND1UNSODDED = aMgr.GetImageThrow("IMAGE_BACKGROUND1UNSODDED");
 		IMAGE_SOD1ROW = aMgr.GetImageThrow("IMAGE_SOD1ROW");
 		IMAGE_SOD3ROW = aMgr.GetImageThrow("IMAGE_SOD3ROW");
 	}
-	catch(ResourceManagerException&)
+	catch (ResourceManagerException&)
 	{
 		return false;
 	}
@@ -1020,7 +1036,6 @@ Image* Sexy::IMAGE_REANIM_ZOMBIE_ZAMBONI_2_DAMAGE1;
 Image* Sexy::IMAGE_REANIM_ZOMBIE_ZAMBONI_2_DAMAGE2;
 Image* Sexy::IMAGE_REANIM_ZOMBIE_ZAMBONI_WHEEL_FLAT;
 Image* Sexy::IMAGE_ROCKSMALL;
-Image* Sexy::IMAGE_ROOF_POLE;
 Image* Sexy::IMAGE_SCARY_POT;
 Image* Sexy::IMAGE_SEEDBANK;
 Image* Sexy::IMAGE_SEEDCHOOSER_BACKGROUND;
@@ -1192,7 +1207,6 @@ bool Sexy::ExtractLoadingImagesResources(ResourceManager *theManager)
 		IMAGE_MONEYBAG = aMgr.GetImageThrow("IMAGE_MONEYBAG");
 		IMAGE_MONEYBAG_HI_RES = aMgr.GetImageThrow("IMAGE_MONEYBAG_HI_RES");
 		IMAGE_NIGHT_GRAVE_GRAPHIC = aMgr.GetImageThrow("IMAGE_NIGHT_GRAVE_GRAPHIC");
-		IMAGE_NIGHT_ROOF_POLE = aMgr.GetImageThrow("IMAGE_NIGHT_ROOF_POLE");
 		IMAGE_OPTIONS_BACKTOGAMEBUTTON0 = aMgr.GetImageThrow("IMAGE_OPTIONS_BACKTOGAMEBUTTON0");
 		IMAGE_OPTIONS_BACKTOGAMEBUTTON2 = aMgr.GetImageThrow("IMAGE_OPTIONS_BACKTOGAMEBUTTON2");
 		IMAGE_OPTIONS_CHECKBOX0 = aMgr.GetImageThrow("IMAGE_OPTIONS_CHECKBOX0");
@@ -1369,7 +1383,6 @@ bool Sexy::ExtractLoadingImagesResources(ResourceManager *theManager)
 		IMAGE_REANIM_ZOMBIE_ZAMBONI_2_DAMAGE2 = aMgr.GetImageThrow("IMAGE_REANIM_ZOMBIE_ZAMBONI_2_DAMAGE2");
 		IMAGE_REANIM_ZOMBIE_ZAMBONI_WHEEL_FLAT = aMgr.GetImageThrow("IMAGE_REANIM_ZOMBIE_ZAMBONI_WHEEL_FLAT");
 		IMAGE_ROCKSMALL = aMgr.GetImageThrow("IMAGE_ROCKSMALL");
-		IMAGE_ROOF_POLE = aMgr.GetImageThrow("IMAGE_ROOF_POLE");
 		IMAGE_SCARY_POT = aMgr.GetImageThrow("IMAGE_SCARY_POT");
 		IMAGE_SEEDBANK = aMgr.GetImageThrow("IMAGE_SEEDBANK");
 		IMAGE_SEEDCHOOSER_BACKGROUND = aMgr.GetImageThrow("IMAGE_SEEDCHOOSER_BACKGROUND");
