@@ -2145,7 +2145,7 @@ void Zombie::UpdateZombieGargantuar()
             ReanimShowTrack("Zombie_gargantuar_whiterope", RENDER_GROUP_HIDDEN);
             mApp->PlayFoley(FoleyType::FOLEY_SWING);
 
-            Zombie* aZombieImp = mBoard->AddZombie(ZombieType::ZOMBIE_IMP, mFromWave);
+            Zombie* aZombieImp = mBoard->AddZombie(ZombieType::ZOMBIE_IMP, mFromWave, false);
             
             float aMinThrowDistance = 40.0f;
             if (mBoard->StageHasRoof())
@@ -2779,7 +2779,7 @@ ZombieID Zombie::SummonBackupDancer(int theRow, int thePosX)
     if (!mBoard->RowCanHaveZombieType(theRow, ZombieType::ZOMBIE_BACKUP_DANCER))
         return ZombieID::ZOMBIEID_NULL;
 
-    Zombie* aZombie = mBoard->AddZombie(ZombieType::ZOMBIE_BACKUP_DANCER, mFromWave);
+    Zombie* aZombie = mBoard->AddZombie(ZombieType::ZOMBIE_BACKUP_DANCER, mFromWave, false);
     if (aZombie == nullptr)
         return ZombieID::ZOMBIEID_NULL;
 
@@ -9856,7 +9856,7 @@ void Zombie::BossSpawnContact()
         aZombieType = (ZombieType)TodPickFromArray((int*)gBossZombieList, aZombieTypeCount);
     }
 
-    Zombie* aZombie = mBoard->AddZombieInRow(aZombieType, mTargetRow, 0);
+    Zombie* aZombie = mBoard->AddZombieInRow(aZombieType, mTargetRow, 0, false);
     aZombie->mPosX = 600.0f;
 }
 
@@ -9946,7 +9946,7 @@ void Zombie::BossBungeeSpawn()
 
     for (int i = 0; i < NUM_BOSS_BUNGEES; i++)
     {
-        Zombie* aZombie = mBoard->AddZombieInRow(ZombieType::ZOMBIE_BUNGEE, 0, 0);
+        Zombie* aZombie = mBoard->AddZombieInRow(ZombieType::ZOMBIE_BUNGEE, 0, 0,false);
         aZombie->PickBungeeZombieTarget(mTargetCol + i);
         aZombie->mAltitude = aZombie->mPosY - 30.0f;
         mFollowerZombieID[i] = mBoard->ZombieGetID(aZombie);

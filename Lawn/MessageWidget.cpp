@@ -393,9 +393,9 @@ void MessageWidget::Draw(Graphics* g)
 	{
 		if (aFont == Sexy::FONT_CONTINUUMBOLD14)
 		{
-			DrawReanimatedText(g, Sexy::FONT_CONTINUUMBOLD14OUTLINE, Color::Black, aPosY);
+			DrawReanimatedText(g, Sexy::FONT_CONTINUUMBOLD14OUTLINE, Color::Black, aPosY + 100);
 		}
-		DrawReanimatedText(g, aFont, aColor, aPosY);
+		DrawReanimatedText(g, aFont, aColor, aPosY + 100);
 	}
 	else
 	{

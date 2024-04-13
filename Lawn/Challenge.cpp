@@ -2895,7 +2895,7 @@ void Challenge::WhackAZombieSpawning()
 				aMaxSpeed = 2;
 			}
 
-			Zombie* aZombie = mBoard->AddZombie(aZombieType, mBoard->mCurrentWave);
+			Zombie* aZombie = mBoard->AddZombie(aZombieType, mBoard->mCurrentWave, false);
 			if (aZombie == nullptr)
 				break;
 
@@ -3057,47 +3057,47 @@ void Challenge::DrawWeather(Graphics* g)
 //0x426B90
 void Challenge::DrawRain(Graphics* g)
 {
-	if (mBoard->mCutScene->IsBeforePreloading() || !mApp->Is3DAccelerated())
-		return;
+    if (mBoard->mCutScene->IsBeforePreloading() || !mApp->Is3DAccelerated())
+        return;
 
-	int aBoardOffsetX;
-	if (aBoardOffsetX > 0)
-	{
-		aBoardOffsetX = (mBoard->mX + 100) / 100 * -100;
-	}
-	else
-	{
-		aBoardOffsetX = mBoard->mX / 100 * -100;
-	}
+    int aBoardOffsetX;
+    if (aBoardOffsetX > 0)
+    {
+        aBoardOffsetX = (mBoard->mX + 100) / 100 * -100;
+    }
+    else
+    {
+        aBoardOffsetX = mBoard->mX / 100 * -100;
+    }
 
-	int aTime = mBoard->mEffectCounter % 100;
-	int aTimeOffsetXEst = TodAnimateCurve(0, 100, aTime, 0, -100, CURVE_LINEAR);
-	int aTimeOffsetYEst = TodAnimateCurve(0, 20, aTime, -100, 0, CURVE_LINEAR);
-	// 绘制远景的雨
-	for (int aHorCnt = 9; aHorCnt > 0; aHorCnt--)
-	{
-		for (int aVerCnt = 7; aVerCnt > 0; aVerCnt--)
-		{
-			int aImageX = aTimeOffsetXEst + 100 * aHorCnt + aBoardOffsetX;
-			int aImageY = aTimeOffsetXEst + 100 * aVerCnt;
-			g->DrawImage(Sexy::IMAGE_RAIN, aImageX, aImageY);
-		}
-	}
+    int aTime = mBoard->mEffectCounter % 100;
+    int aTimeOffsetXEst = TodAnimateCurve(0, 100, aTime, 0, -100, CURVE_LINEAR);
+    int aTimeOffsetYEst = TodAnimateCurve(0, 20, aTime % 20, -100, 0, CURVE_LINEAR);
+    // 绘制远景的雨
+    for (int aHorCnt = 9; aHorCnt > 0; aHorCnt--)
+    {
+        for (int aVerCnt = 7; aVerCnt > 0; aVerCnt--)
+        {
+            int aImageX = aHorCnt * 100 + aTimeOffsetXEst + aBoardOffsetX;
+            int aImageY = aVerCnt * 100 + aTimeOffsetYEst;
+            g->DrawImage(Sexy::IMAGE_RAIN, aImageX, aImageY);
+        }
+    }
 
-	aTime = mBoard->mEffectCounter;
-	float aTimeOffsetXCls = TodAnimateCurve(0, 161, aTime % 161, 0, -100, CURVE_LINEAR);
-	float aTimeOffsetYCls = TodAnimateCurve(0, 33, aTime % 33, -100, 0, CURVE_LINEAR);
-	// 绘制近景的雨
-	for (int aHorCnt = 0; aHorCnt < 9; aHorCnt++)
-	{
-		for (int aVerCnt = 0; aVerCnt < 7; aVerCnt++)
-		{
-			float aRainScaleCls = 1.5f;
-			float aImageClsX = (aHorCnt * 100 + aTimeOffsetXCls) * aRainScaleCls + aBoardOffsetX;
-			float aImageClsY = (aVerCnt * 100 + aTimeOffsetYCls) * aRainScaleCls;
-			TodDrawImageScaledF(g, Sexy::IMAGE_RAIN, aImageClsX, aImageClsY, aRainScaleCls, aRainScaleCls);
-		}
-	}
+    aTime = mBoard->mEffectCounter;
+    float aTimeOffsetXCls = TodAnimateCurve(0, 161, aTime % 161, 0, -100, CURVE_LINEAR);
+    float aTimeOffsetYCls = TodAnimateCurve(0, 33, aTime % 33, -100, 0, CURVE_LINEAR);
+    // 绘制近景的雨
+    for (int aHorCnt = 0; aHorCnt < 9; aHorCnt++)
+    {
+        for (int aVerCnt = 0; aVerCnt < 7; aVerCnt++)
+        {
+            float aRainScaleCls = 1.5f;
+            float aImageClsX = (aHorCnt * 100 + aTimeOffsetXCls) * aRainScaleCls + aBoardOffsetX;
+            float aImageClsY = (aVerCnt * 100 + aTimeOffsetYCls) * aRainScaleCls;
+            TodDrawImageScaledF(g, Sexy::IMAGE_RAIN, aImageClsX, aImageClsY, aRainScaleCls, aRainScaleCls);
+        }
+    }
 }
 
 //0x426E90
@@ -3135,7 +3135,7 @@ void Challenge::DrawStormNight(Graphics* g)
 //0x426F60
 void Challenge::PlayBossEnter()
 {
-	mBoard->AddZombie(ZOMBIE_BOSS, 0);
+	mBoard->AddZombie(ZOMBIE_BOSS, 0, false);
 }
 
 //0x426FC0
@@ -3649,7 +3649,7 @@ bool Challenge::BeghouledCanClearCrater()
 //0x427D30
 Zombie* Challenge::ZombiquariumSpawnSnorkle()
 {
-	Zombie* aZombie = mBoard->AddZombieInRow(ZOMBIE_SNORKEL, 0, 0);
+	Zombie* aZombie = mBoard->AddZombieInRow(ZOMBIE_SNORKEL, 0, 0, false);
 	aZombie->mPosX = RandRangeFloat(50, 650);
 	aZombie->mPosY = RandRangeFloat(100, 400);
 	return aZombie;
@@ -4233,7 +4233,7 @@ void Challenge::ScaryPotterOpenPot(GridItem* theScaryPot)
 		mBoard->AddCoin(aXPos + 20, aYPos, COIN_USABLE_SEED_PACKET, COIN_MOTION_FROM_PLANT)->mUsableSeedType = theScaryPot->mSeedType;
 		break;
 	case SCARYPOT_ZOMBIE:
-		mBoard->AddZombieInRow(theScaryPot->mZombieType, theScaryPot->mGridY, 0)->mPosX = aXPos;
+		mBoard->AddZombieInRow(theScaryPot->mZombieType, theScaryPot->mGridY, 0, false)->mPosX = aXPos;
 		break;
 	case SCARYPOT_SUN:
 	{
@@ -4375,7 +4375,7 @@ ZombieType Challenge::IZombieSeedTypeToZombieType(SeedType theSeedType)
 //0x42A0F0
 void Challenge::IZombiePlaceZombie(ZombieType theZombieType, int theGridX, int theGridY)
 {
-	Zombie* aZombie = mBoard->AddZombieInRow(theZombieType, theGridY, 0);
+	Zombie* aZombie = mBoard->AddZombieInRow(theZombieType, theGridY, 0, false);
 	if (theZombieType == ZOMBIE_BUNGEE)
 	{
 		aZombie->mTargetCol = theGridX;
@@ -5064,7 +5064,7 @@ void Challenge::SquirrelFound(GridItem* theSquirrel)
 {
 	if (theSquirrel->mGridItemState == GRIDITEM_STATE_SQUIRREL_ZOMBIE)
 	{
-		Zombie* aZombie = mBoard->AddZombieInRow(ZOMBIE_NORMAL, theSquirrel->mGridY, 0);
+		Zombie* aZombie = mBoard->AddZombieInRow(ZOMBIE_NORMAL, theSquirrel->mGridY, 0, false);
 		aZombie->mPosX = mBoard->GridToPixelX(theSquirrel->mGridX, theSquirrel->mGridY);
 		theSquirrel->GridItemDie();
 		mBoard->DisplayAdvice("[ADVICE_SQUIRREL_ZOMBIE]", MESSAGE_STYLE_HINT_FAST, ADVICE_NONE);

@@ -236,6 +236,7 @@ void NewOptionsDialog::CheckboxChecked(int theId, bool checked)
     case NewOptionsDialog::NewOptionsDialog_HardwareAcceleration:
         if (checked)
         {
+            /*
             if (!mApp->Is3DAccelerationSupported())
             {
                 mHardwareAccelerationCheckbox->SetChecked(false, false);
@@ -263,6 +264,7 @@ void NewOptionsDialog::CheckboxChecked(int theId, bool checked)
                     Dialog::BUTTONS_FOOTER
                 );
             }
+            */
         }
         break;
     }

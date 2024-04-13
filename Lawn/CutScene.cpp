@@ -117,7 +117,7 @@ void CutScene::PlaceAZombie(ZombieType theZombieType, int theGridX, int theGridY
 		aPutOnDuckyTube = true;
 	}
 
-	Zombie* aZombie = mBoard->AddZombieInRow(theZombieType, theGridY, -2);
+	Zombie* aZombie = mBoard->AddZombieInRow(theZombieType, theGridY, -2, true);
 	TOD_ASSERT(aZombie);
 	bool aStageHasRoof = mBoard->StageHasRoof();
 
@@ -1837,7 +1837,7 @@ void CutScene::ClearUpsellBoard()
 
 void CutScene::AddUpsellZombie(ZombieType theZombieType, int thePixelX, int theGridY)
 {
-	Zombie* aZombie = mBoard->AddZombieInRow(theZombieType, theGridY, 0);
+	Zombie* aZombie = mBoard->AddZombieInRow(theZombieType, theGridY, 0,false);
 	aZombie->mPosX = thePixelX;
 	aZombie->mPosY = aZombie->GetPosYBasedOnRow(theGridY);
 	aZombie->SetRow(theGridY);

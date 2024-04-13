@@ -160,12 +160,16 @@ ReanimationParams gLawnReanimationArray[(int)ReanimationType::NUM_REANIMS] = { /
 	{ ReanimationType::REANIM_CREDITS_WEARETHEUNDEAD,               "reanim\\Credits_WeAreTheUndead.reanim",            1 },
 	{ ReanimationType::REANIM_CREDITS_DISCOLIGHTS,                  "reanim\\Credits_DiscoLights.reanim",               1 },
 	{ ReanimationType::REANIM_FLAG,                                 "reanim\\Zombie_FlagPole.reanim",                   0 },
-	{ ReanimationType::REANIM_BUSH1,                                 "reanim\\bushes3.reanim",                           0 },
-	{ ReanimationType::REANIM_BUSH2,                                 "reanim\\bushes3.reanim",                           0 },
-	{ ReanimationType::REANIM_BUSH3,                                 "reanim\\bushes3.reanim",                           0 },
-	{ ReanimationType::REANIM_BUSH4,                                 "reanim\\bushes3.reanim",                           0 },
-	{ ReanimationType::REANIM_BUSH5,                                 "reanim\\bushes3.reanim",                           0 },
-	{ ReanimationType::REANIM_EXPLODE_O_NUT,                        "reanim\\ExplodeOnut.reanim",                       0 },
+	{ ReanimationType::REANIM_BUSH1,                                "reanim\\bushes3.reanim",                           0 },
+	{ ReanimationType::REANIM_BUSH2,                                "reanim\\bushes3.reanim",                           0 },
+	{ ReanimationType::REANIM_BUSH3,                                "reanim\\bushes3.reanim",                           0 },
+	{ ReanimationType::REANIM_BUSH4,                                "reanim\\bushes3.reanim",                           0 },
+	{ ReanimationType::REANIM_BUSH5,                                "reanim\\bushes5.reanim",                           0 },
+	{ ReanimationType::REANIM_BUSH1_NIGHT,                          "reanim\\bushes3.reanim",                           0 },
+	{ ReanimationType::REANIM_BUSH2_NIGHT,                          "reanim\\bushes3.reanim",                           0 },
+	{ ReanimationType::REANIM_BUSH3_NIGHT,                          "reanim\\bushes3.reanim",                           0 },
+	{ ReanimationType::REANIM_BUSH4_NIGHT,                          "reanim\\bushes3.reanim",                           0 },
+	{ ReanimationType::REANIM_BUSH5_NIGHT,                          "reanim\\bushes5.reanim",                           0 },
 };
 
 //0x471540
