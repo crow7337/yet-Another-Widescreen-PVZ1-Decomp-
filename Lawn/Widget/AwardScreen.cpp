@@ -92,7 +92,7 @@ AwardScreen::AwardScreen(LawnApp* theApp, AwardType theAwardType)
     mMenuButton->mColors[ButtonWidget::COLOR_LABEL] = Color(42, 42, 90);
     mMenuButton->mColors[ButtonWidget::COLOR_LABEL_HILITE] = Color(42, 42, 90);
     mMenuButton->mParentWidget = this;
-    mMenuButton->Resize(677, 16, 111, 26);
+    mMenuButton->Resize(877, 46, 111, 26);
     mMenuButton->mTextOffsetY = 1;
     if (!mApp->HasFinishedAdventure() && aLevel <= 3)
     {
@@ -179,8 +179,8 @@ bool AwardScreen::IsPaperNote()
 void AwardScreen::DrawBottom(Graphics* g, const SexyString& theTitle, const SexyString& theAward, const SexyString& theMessage)
 {
     g->DrawImage(Sexy::IMAGE_AWARDSCREEN_BACK, 0, 0);
-    TodDrawString(g, theTitle, BOARD_WIDTH / 2, 58, Sexy::FONT_DWARVENTODCRAFT24, Color(213, 159, 43), DS_ALIGN_CENTER);
-    TodDrawString(g, theAward, BOARD_WIDTH / 2, 326, Sexy::FONT_DWARVENTODCRAFT18YELLOW, Color::White, DS_ALIGN_CENTER);
+    TodDrawString(g, theTitle, BOARD_WIDTH / 2, 120, Sexy::FONT_DWARVENTODCRAFT24, Color(213, 159, 43), DS_ALIGN_CENTER);
+    TodDrawString(g, theAward, BOARD_WIDTH / 2, 380, Sexy::FONT_DWARVENTODCRAFT18YELLOW, Color::White, DS_ALIGN_CENTER);
     TodDrawStringWrapped(g, theMessage, Rect(285, 360, 230, 90), Sexy::FONT_BRIANNETOD16, Color(40, 50, 90), DS_ALIGN_CENTER_VERTICAL_MIDDLE);
 }
 
@@ -231,7 +231,7 @@ void AwardScreen::Draw(Graphics* g)
             if (mApp->EarnedGoldTrophy())
             {
                 DrawBottom(g, _S("[BEAT_GAME_MESSAGE1]"), _S("[GOLD_SUNFLOWER_TROPHY]"), _S("[BEAT_GAME_MESSAGE2]"));
-                TodDrawImageCelCenterScaledF(g, Sexy::IMAGE_SUNFLOWER_TROPHY, 330, 80, 1, 0.7f, 0.7f);
+                TodDrawImageCelCenterScaledF(g, Sexy::IMAGE_SUNFLOWER_TROPHY, 530, 120, 1, 0.7f, 0.7f);
             }
             else
             {

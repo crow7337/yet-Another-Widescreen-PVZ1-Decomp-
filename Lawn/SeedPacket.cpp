@@ -93,7 +93,7 @@ void SeedPacket::FlashIfReady()
 		int aRenderPosition = Board::MakeRenderOrder(RenderLayer::RENDER_LAYER_UI_BOTTOM, 0, 2);
 		mApp->AddTodParticle(mX + mBoard->mSeedBank->mX, mY + mBoard->mSeedBank->mY, aRenderPosition, ParticleEffect::PARTICLE_SEED_PACKET_FLASH);
 	}
-	
+
 	if (mBoard->mTutorialState == TutorialState::TUTORIAL_LEVEL_1_REFRESH_PEASHOOTER)
 	{
 		mBoard->SetTutorialState(TutorialState::TUTORIAL_LEVEL_1_PICK_UP_PEASHOOTER);
@@ -201,210 +201,58 @@ void SeedPacketDrawSeed(Graphics* g, float x, float y, SeedType theSeedType, See
 		aImage = FilterEffectGetImage(aImage, aFilterEffect);
 	}
 
-	if (aSeedType == SeedType::SEED_PEASHOOTER && g->mScaleX <= 1.0f)
+	if (aSeedType == SeedType::SEED_POTATOMINE && g->mScaleX <= 1.0f)
 	{
 		TodDrawImageCelScaledF(g, aImage, x, y, 0, 0, g->mScaleX, g->mScaleY);
 	}
-	else if (aSeedType == SeedType::SEED_SUNFLOWER && g->mScaleX <= 1.0f)
+	else if (aSeedType == SeedType::SEED_CHOMPER && g->mScaleX <= 1.0f)
 	{
 		TodDrawImageCelScaledF(g, aImage, x, y, 1, 0, g->mScaleX, g->mScaleY);
 	}
-	else if (aSeedType == SeedType::SEED_CHERRYBOMB && g->mScaleX <= 1.0f)
+	else if (aSeedType == SeedType::SEED_HYPNOSHROOM && g->mScaleX <= 1.0f)
 	{
 		TodDrawImageCelScaledF(g, aImage, x, y, 2, 0, g->mScaleX, g->mScaleY);
 	}
-	else if (aSeedType == SeedType::SEED_WALLNUT && g->mScaleX <= 1.0f)
+	else if (aSeedType == SeedType::SEED_TALLNUT && g->mScaleX <= 1.0f)
 	{
 		TodDrawImageCelScaledF(g, aImage, x, y, 3, 0, g->mScaleX, g->mScaleY);
 	}
-	else if (aSeedType == SeedType::SEED_POTATOMINE && g->mScaleX <= 1.0f)
+	else if (aSeedType == SeedType::SEED_BLOVER && g->mScaleX <= 1.0f)
 	{
 		TodDrawImageCelScaledF(g, aImage, x, y, 4, 0, g->mScaleX, g->mScaleY);
 	}
-	else if (aSeedType == SeedType::SEED_SNOWPEA && g->mScaleX <= 1.0f)
+	else if (aSeedType == SeedType::SEED_PUMPKINSHELL && g->mScaleX <= 1.0f)
 	{
 		TodDrawImageCelScaledF(g, aImage, x, y, 5, 0, g->mScaleX, g->mScaleY);
 	}
-	else if (aSeedType == SeedType::SEED_CHOMPER && g->mScaleX <= 1.0f)
+	else if (aSeedType == SeedType::SEED_TWINSUNFLOWER && g->mScaleX <= 1.0f)
 	{
 		TodDrawImageCelScaledF(g, aImage, x, y, 6, 0, g->mScaleX, g->mScaleY);
 	}
-	else if (aSeedType == SeedType::SEED_REPEATER && g->mScaleX <= 1.0f)
+	else if (aSeedType == SeedType::SEED_COBCANNON && g->mScaleX <= 1.0f)
 	{
 		TodDrawImageCelScaledF(g, aImage, x, y, 7, 0, g->mScaleX, g->mScaleY);
 	}
-	else if (aSeedType == SeedType::SEED_PUFFSHROOM && g->mScaleX <= 1.0f)
+	else if (aSeedType == SeedType::SEED_CABBAGEPULT && g->mScaleX <= 1.0f)
 	{
 		TodDrawImageCelScaledF(g, aImage, x, y, 8, 0, g->mScaleX, g->mScaleY);
 	}
-	else if (aSeedType == SeedType::SEED_SUNSHROOM && g->mScaleX <= 1.0f)
+	else if (aSeedType == SeedType::SEED_KERNELPULT && g->mScaleX <= 1.0f)
 	{
 		TodDrawImageCelScaledF(g, aImage, x, y, 9, 0, g->mScaleX, g->mScaleY);
 	}
-	else if (aSeedType == SeedType::SEED_FUMESHROOM && g->mScaleX <= 1.0f)
+	else if (aSeedType == SeedType::SEED_MELONPULT && g->mScaleX <= 1.0f)
 	{
 		TodDrawImageCelScaledF(g, aImage, x, y, 10, 0, g->mScaleX, g->mScaleY);
 	}
-	else if (aSeedType == SeedType::SEED_GRAVEBUSTER && g->mScaleX <= 1.0f)
+	else if (aSeedType == SeedType::SEED_WINTERMELON && g->mScaleX <= 1.0f)
 	{
 		TodDrawImageCelScaledF(g, aImage, x, y, 11, 0, g->mScaleX, g->mScaleY);
 	}
-	else if (aSeedType == SeedType::SEED_HYPNOSHROOM && g->mScaleX <= 1.0f)
+	else if (aSeedType == SeedType::SEED_SPIKEROCK && g->mScaleX <= 1.0f)
 	{
 		TodDrawImageCelScaledF(g, aImage, x, y, 12, 0, g->mScaleX, g->mScaleY);
 	}
-	else if (aSeedType == SeedType::SEED_SCAREDYSHROOM && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 13, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_ICESHROOM && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 14, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_DOOMSHROOM && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 15, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_LILYPAD && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 16, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_SQUASH && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 17, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_THREEPEATER && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 18, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_TANGLEKELP && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 19, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_JALAPENO && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 20, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_SPIKEWEED && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 21, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_TORCHWOOD && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 22, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_TALLNUT && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 23, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_SEASHROOM && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 24, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_PLANTERN && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 25, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_CACTUS && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 26, 0, g->mScaleX, g->mScaleY);
-    }
-	else if (aSeedType == SeedType::SEED_BLOVER && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 27, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_SPLITPEA && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 28, 0, g->mScaleX, g->mScaleY);
-    }
-	else if (aSeedType == SeedType::SEED_STARFRUIT && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 29, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_PUMPKINSHELL && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 30, 0, g->mScaleX, g->mScaleY);
-    }
-	else if (aSeedType == SeedType::SEED_MAGNETSHROOM && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 31, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_CABBAGEPULT && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 32, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_FLOWERPOT && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 33, 0, g->mScaleX, g->mScaleY);
-    }
-	else if (aSeedType == SeedType::SEED_KERNELPULT && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 34, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_INSTANT_COFFEE && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 35, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_GARLIC && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 36, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_UMBRELLA && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 37, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_MARIGOLD && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 38, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_MELONPULT && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 39, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_EXPLODE_O_NUT && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 49, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_GATLINGPEA && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 40, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_TWINSUNFLOWER && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 41, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_TWINSUNFLOWER && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 42, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_GLOOMSHROOM && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 42.5, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_CATTAIL && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 43, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_WINTERMELON && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 44, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_GOLD_MAGNET && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 45, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_SPIKEROCK && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 46, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_COBCANNON && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 47, 0, g->mScaleX, g->mScaleY);
-	}
-	else if (aSeedType == SeedType::SEED_GIANT_WALLNUT && g->mScaleX <= 1.0f)
-	{
-		TodDrawImageCelScaledF(g, aImage, x, y, 50, 0, g->mScaleX, g->mScaleY);
-		}
 	else
 	{
 		Graphics aSeedG(*g);
@@ -1263,8 +1111,8 @@ void SeedPacket::SetPacketType(SeedType theSeedType, SeedType theImitaterType)
 		aUseSeedType = theImitaterType;
 	}
 
-	if (mApp->mGameMode == GameMode::GAMEMODE_CHALLENGE_BEGHOULED || mApp->mGameMode == GameMode::GAMEMODE_CHALLENGE_BEGHOULED_TWIST || 
-		mApp->mGameMode == GameMode::GAMEMODE_CHALLENGE_ZOMBIQUARIUM || mApp->mGameMode == GameMode::GAMEMODE_CHALLENGE_LAST_STAND || 
+	if (mApp->mGameMode == GameMode::GAMEMODE_CHALLENGE_BEGHOULED || mApp->mGameMode == GameMode::GAMEMODE_CHALLENGE_BEGHOULED_TWIST ||
+		mApp->mGameMode == GameMode::GAMEMODE_CHALLENGE_ZOMBIQUARIUM || mApp->mGameMode == GameMode::GAMEMODE_CHALLENGE_LAST_STAND ||
 		mApp->IsIZombieLevel() || mApp->IsScaryPotterLevel() || mApp->IsWhackAZombieLevel() || (mApp->IsSurvivalMode() && mBoard->mChallenge->mSurvivalStage > 0))
 		return;
 
