@@ -4214,6 +4214,10 @@ void Plant::DrawSeedType(Graphics* g, SeedType theSeedType, SeedType theImitater
     {
         aDrawVariation = DrawVariation::VARIATION_AQUARIUM;
     }
+    else if (theDrawVariation == DrawVariation::VARIATION_ZOMBIE)
+    {
+        aDrawVariation = DrawVariation::VARIATION_ZOMBIE;
+    }
 
     if (((LawnApp*)gSexyAppBase)->mGameMode == GameMode::GAMEMODE_CHALLENGE_BIG_TIME &&
         (aSeedType == SeedType::SEED_WALLNUT || aSeedType == SeedType::SEED_SUNFLOWER || aSeedType == SeedType::SEED_MARIGOLD))

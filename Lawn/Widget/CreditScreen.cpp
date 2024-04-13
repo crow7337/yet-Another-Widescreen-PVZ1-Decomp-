@@ -936,7 +936,7 @@ void CreditScreen::Draw(Graphics* g)
         aBackground2G.mTransX += aTransformBackground2.mTransX + 220.0f;
         if (aDrawPool || aDrawNightPool)
         {
-            mApp->mPoolEffect->PoolEffectDraw(&aBackground2G, aDrawNightPool, 34, 278);
+            mApp->mPoolEffect->PoolEffectDraw(&aBackground2G, aDrawNightPool);
         }
     }
     

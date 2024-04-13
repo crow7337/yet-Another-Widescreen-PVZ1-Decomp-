@@ -107,17 +107,17 @@ void PoolEffect::UpdateWaterEffect(Sexy::Graphics* g)
 }
 
 //0x469DE0 // 34, 278 lawn
-void PoolEffect::PoolEffectDraw(Sexy::Graphics* g, bool theIsNight, int xPos, int yPos) 
+void PoolEffect::PoolEffectDraw(Sexy::Graphics* g, bool theIsNight) 
 {
     if (!mApp->Is3DAccelerated())
     {
         if (theIsNight)
         {
-            g->DrawImage(IMAGE_POOL_NIGHT, xPos, yPos);
+            g->DrawImage(IMAGE_POOL_NIGHT, 34, 278);
         }
         else
         {
-            g->DrawImage(IMAGE_POOL, xPos, yPos);
+            g->DrawImage(IMAGE_POOL, 34, 278);
         }
         return;
     }

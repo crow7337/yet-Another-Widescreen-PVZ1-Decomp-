@@ -6111,7 +6111,7 @@ void Board::DrawBackdrop(Graphics* g)
 	}
 	if (StageHasPool())
 	{
-		mApp->mPoolEffect->PoolEffectDraw(g, StageIsNight(), 34, 278);
+		mApp->mPoolEffect->PoolEffectDraw(g, StageIsNight());
 	}
 	if (mTutorialState == TutorialState::TUTORIAL_LEVEL_1_PLANT_PEASHOOTER)
 	{
